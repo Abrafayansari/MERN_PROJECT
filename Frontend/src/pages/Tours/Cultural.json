@@ -1,0 +1,56 @@
+[{
+    "name": "City Exploration Tour",
+    "place": "New York City",
+    "check_in_date": "2023-05-15",
+    "check_out_date": "2023-05-20",
+    "price": 1200.00
+  },
+  {
+    "name": "Beach Retreat",
+    "place": "Maui, Hawaii",
+    "check_in_date": "2023-07-10",
+    "check_out_date": "2023-07-17",
+    "price": 2500.00
+  },
+  {
+    "name": "Historical Adventure",
+    "place": "Rome, Italy",
+    "check_in_date": "2023-09-01",
+    "check_out_date": "2023-09-10",
+    "price": 1800.00
+  },
+  {
+    "name": "Mountain Expedition",
+    "place": "Banff National Park, Canada",
+    "check_in_date": "2023-06-08",
+    "check_out_date": "2023-06-15",
+    "price": 1500.00
+  },
+  {
+    "name": "Cultural Immersion",
+    "place": "Tokyo, Japan",
+    "check_in_date": "2023-08-05",
+    "check_out_date": "2023-08-12",
+    "price": 2000.00
+  },
+  {
+    "name": "Wildlife Safari",
+    "place": "Maasai Mara, Kenya",
+    "check_in_date": "2023-10-20",
+    "check_out_date": "2023-10-27",
+    "price": 2800.00
+  },
+  {
+    "name": "Northern Lights Experience",
+    "place": "Reykjavik, Iceland",
+    "check_in_date": "2023-11-15",
+    "check_out_date": "2023-11-22",
+    "price": 2200.00
+  },
+  {
+    "name": "Sunset Cruise",
+    "place": "Santorini, Greece",
+    "check_in_date": "2023-07-01",
+    "check_out_date": "2023-07-07",
+    "price": 1600.00
+  }]

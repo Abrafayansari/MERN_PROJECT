@@ -1,0 +1,56 @@
+[{
+    "name": "Desert Adventure",
+    "place": "Dubai, UAE",
+    "check_in_date": "2023-04-10",
+    "check_out_date": "2023-04-17",
+    "price": 1900.00
+  },
+  {
+    "name": "Rainforest Discovery",
+    "place": "Amazon Rainforest, Brazil",
+    "check_in_date": "2023-12-01",
+    "check_out_date": "2023-12-10",
+    "price": 2100.00
+  },
+  {
+    "name": "Alpine Getaway",
+    "place": "Swiss Alps, Switzerland",
+    "check_in_date": "2023-03-15",
+    "check_out_date": "2023-03-22",
+    "price": 1700.00
+  },
+  {
+    "name": "Mystical Temples Tour",
+    "place": "Angkor Wat, Cambodia",
+    "check_in_date": "2023-09-15",
+    "check_out_date": "2023-09-22",
+    "price": 2400.00
+  },
+  {
+    "name": "Island Hopping",
+    "place": "Phuket, Thailand",
+    "check_in_date": "2023-06-01",
+    "check_out_date": "2023-06-08",
+    "price": 1800.00
+  },
+  {
+    "name": "Winter Wonderland",
+    "place": "Aspen, USA",
+    "check_in_date": "2023-12-20",
+    "check_out_date": "2023-12-27",
+    "price": 2600.00
+  },
+  {
+    "name": "Vineyard Retreat",
+    "place": "Napa Valley, USA",
+    "check_in_date": "2023-05-01",
+    "check_out_date": "2023-05-07",
+    "price": 1500.00
+  },
+  {
+    "name": "Tropical Paradise",
+    "place": "Bora Bora, French Polynesia",
+    "check_in_date": "2023-08-20",
+    "check_out_date": "2023-08-27",
+    "price": 3000.00
+  }]

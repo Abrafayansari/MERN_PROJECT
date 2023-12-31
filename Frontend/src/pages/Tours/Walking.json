@@ -1,0 +1,57 @@
+[{
+    "name": "Jungle Expedition",
+    "place": "Costa Rica",
+    "check_in_date": "2023-11-01",
+    "check_out_date": "2023-11-10",
+    "price": 2200.00
+  },
+  {
+    "name": "Art and Culture Tour",
+    "place": "Paris, France",
+    "check_in_date": "2023-04-15",
+    "check_out_date": "2023-04-22",
+    "price": 1900.00
+  },
+  {
+    "name": "Ski Resort Getaway",
+    "place": "Whistler, Canada",
+    "check_in_date": "2023-02-10",
+    "check_out_date": "2023-02-17",
+    "price": 2300.00
+  },
+  {
+    "name": "African Safari",
+    "place": "Kruger National Park, South Africa",
+    "check_in_date": "2023-10-01",
+    "check_out_date": "2023-10-10",
+    "price": 2600.00
+  },
+  {
+    "name": "Sun and Sand Escape",
+    "place": "Cancun, Mexico",
+    "check_in_date": "2023-07-25",
+    "check_out_date": "2023-07-31",
+    "price": 1700.00
+  },
+  {
+    "name": "Mediterranean Cruise",
+    "place": "Barcelona, Spain",
+    "check_in_date": "2023-09-25",
+    "check_out_date": "2023-10-02",
+    "price": 2800.00
+  },
+  {
+    "name": "Countryside Retreat",
+    "place": "Cotswolds, England",
+    "check_in_date": "2023-06-15",
+    "check_out_date": "2023-06-22",
+    "price": 2000.00
+  },
+  {
+    "name": "Asian Adventure",
+    "place": "Seoul, South Korea",
+    "check_in_date": "2023-11-15",
+    "check_out_date": "2023-11-22",
+    "price": 2100.00
+  }
+]
