@@ -14,16 +14,16 @@ export default function App() {
       color: "#8fa5b6"
     },
     enter: [
-      { opacity: 1, height: 80, innerHeight: 80 },
-      { transform: "perspective(600px) rotateX(180deg)", color: "#28d79f" },
+      { opacity: 1, height: 80, innerHeight : 80 },
+      { transform: "perspective(600px) rotateX(180deg)", color: "#ED1C24" },
       { transform: "perspective(600px) rotateX(0deg)" }
     ],
     leave: [
-      { color: "#c23369" },
+      { color: "white" },
       { innerHeight: 0 },
       { opacity: 0, height: 0 }
     ],
-    update: { color: "#28b4d7" }
+    update: { color: "white" }
   })
 
   const reset = useCallback(() => {
@@ -31,11 +31,11 @@ export default function App() {
     ref.current = []
     set([])
     ref.current.push(
-      setTimeout(() => set(["Apples", "Oranges", "Kiwis"]), 2000)
+      setTimeout(() => set(["Explore", " Experience", "Enjoy"]), 2000)
     )
-    ref.current.push(setTimeout(() => set(["Apples", "Kiwis"]), 5000))
+    ref.current.push(setTimeout(() => set(["Adventure", "Awaits....."]), 5000))
     ref.current.push(
-      setTimeout(() => set(["Apples", "Bananas", "Kiwis"]), 8000)
+      setTimeout(() => set(["Discover", " Your", " World"]), 8000)
     )
   }, [])
 
