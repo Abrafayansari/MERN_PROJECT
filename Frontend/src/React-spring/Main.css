@@ -1,0 +1,34 @@
+.main {
+    width: 100vw;
+    padding: 0 20px;
+    margin: 0 auto;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .transitionsItem {
+    overflow: hidden;
+    width: fit;
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 50px;
+    font-weight: 800;
+    text-transform: uppercase;
+    will-change: transform, opacity, height;
+    white-space: nowrap;
+    cursor: pointer;
+    line-height: 80px;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+  }
+  

@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, {  useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios"
@@ -7,10 +7,16 @@ import { Link, useNavigate } from "react-router-dom";
 import { LOGIN } from "../../../redux/actions";
 import Footer from "../../components/Footer";
 import "../Style.css"
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 export default function Login() {
- 
+  useEffect(() => {
+    AOS.init({duration: 2000,
+    easing: 'ease-out-back', 
+    offset: 120,});
+  }, []);
 const dispatch=useDispatch()
 const globalState = useSelector((state)=>state)
   const [Email, setEmail] = useState("");
@@ -57,10 +63,8 @@ const navigate=useNavigate()
     <>
     
     <Navbar/>
-    <div>
-      
-    </div>
-    <div className="flex flex-col items-center justify-between
+ 
+    <div data-aos="zoom-out" className="flex flex-col items-center justify-between
     ">
     <Helmet> 
       <style>

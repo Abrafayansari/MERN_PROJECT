@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import Navbar from "./Navbar";
 import axios from "axios";
@@ -10,12 +10,18 @@ import { toast } from 'react-toastify';
 import {Helmet} from "react-helmet"
 import "./nav.css"
 import Footer from "./Footer";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 // import Navbar from './components/Navbar
 
-
 function Signup() {
+  useEffect(() => {
+    AOS.init({duration: 2000,
+    easing: 'ease-out-back', 
+    offset: 120,});
+  }, []);
   const notify = () => toast("Wow so easy!")  ;
   const dispatch= useDispatch()
   const globalState = useSelector((state) => state);
@@ -65,7 +71,7 @@ const[created,setcreated]=useState()
     <div className="flex flex-col  items-center  ">
     <Navbar/>
     
-    <div  className="h-[425px]  w-96 mt-[38px]  rounded-2xl  bg-white ">
+    <div data-aos="zoom-out"  className="h-[425px]  w-96 mt-[38px]  rounded-2xl  bg-white ">
     
 
       <div className="text-gray-600 flex ">

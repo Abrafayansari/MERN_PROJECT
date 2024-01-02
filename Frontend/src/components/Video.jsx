@@ -1,15 +1,25 @@
+
 import React from 'react';
 
 
-function VideoBackground() {
+const VideoBackground = () => {
   return (
     <div className="relative">
-      <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop>
-        <source src="/assets/sea.mp4" type="video/mp4" />
+      
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        autoPlay
+        loop
+        muted
+      >
+        <source src="https://youtu.be/oSexfR0Ubzw" type="video/mp4" />
+      
       </video>
-      {/* Other content goes here */}
+
+  
+      
     </div>
   );
-}
+};
 
 export default VideoBackground;
