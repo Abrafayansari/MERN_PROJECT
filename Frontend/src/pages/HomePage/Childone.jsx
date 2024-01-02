@@ -14,13 +14,13 @@ const Childone = () => {
       // Update the state with the next image
       setSelectedImage(images[nextIndex]);
     }, 5000); // Delay in milliseconds
-    
+
     // Clear the interval to prevent it from running on component unmount or re-render
     return () => clearInterval(intervalId);
   }, [selectedImage, images]);
   return (
   <div id="firstchild" className={`flex  h-[100vh]  bg-cover flex-col  `} style={{transition: "all",backgroundImage: `url(${selectedImage})`}}>
-  
+    
      {/* <h1 className='mt-40 ml-[7vw]'>Adventure Awaits,</h1> <h1 className='ml-[14vw]'>Explore More</h1>  */}
    <div className=" text-white h-[100vh]   w-[100vw] rounded-md bg-black flex flex-col  bg-opacity-60  text-[50px] " > 
    <div className='mt-40  ml-[8vw]'>

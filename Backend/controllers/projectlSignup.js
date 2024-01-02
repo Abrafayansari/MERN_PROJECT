@@ -5,6 +5,7 @@ const customError = require("../Middleware/customError")
 const mongoose=require("mongoose")
 const cloudinary=require("../Middleware/ImgUpload")
 const placeModel = require("../Models/place")
+const BookingModel = require("../Models/Booking")
 
 exports.createuser = CatchAsyncError(async (req, res, next) => {
     const { Username, Email, Password } = req.body
@@ -79,7 +80,17 @@ exports.finduploads=async(req,res)=>{
     const found=await placeModel.find()
     res.json(found)
 }
-
+exports.bookplace=async(req,res)=>{
+    const {user,place,name,phone}=req.body
+    const created=await BookingModel.create({
+       user:user, place:place,name:name,phone:phone 
+    })
+    res.json(created)
+}
+exports.findbookedplace=async(req,res)=>{
+    const found=await BookingModel.find().populate("user").populate("place")
+    res.json(found)
+}
 
 
 

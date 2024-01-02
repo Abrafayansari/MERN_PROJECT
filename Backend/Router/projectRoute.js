@@ -6,7 +6,7 @@ const fs = require("fs");
 
 
 const  {Verify}=require("../Middleware/VerifySignup")
-const {createuser, findperson, Uploadplaces, finduploads} = require("../controllers/projectlSignup")
+const {createuser, findperson, Uploadplaces, finduploads, bookplace, findbookedplace} = require("../controllers/projectlSignup")
 const {deleteuser}=require("../controllers/projectlSignup")
 const {finduser,findsignup}=require("../controllers/projectlSignup");
 
@@ -17,6 +17,8 @@ router.get("/findall",findperson)
 router.post("/findsign",Verify, findsignup)
 router.post("/uploadplace",Uploadplaces)
 router.post("/findupload",finduploads)
+router.post("/bookplace",bookplace)
+router.get("/findbookedplace",findbookedplace)
 //========================file upload=========================//
 
 
