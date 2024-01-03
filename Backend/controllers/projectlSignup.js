@@ -77,7 +77,7 @@ exports.Uploadplaces= async (req,res,next)=>{
     res.json(created)
 }
 exports.finduploads=async(req,res)=>{
-    const found=await placeModel.find()
+    const found=await placeModel.find({})
     res.json(found)
 }
 exports.bookplace=async(req,res)=>{

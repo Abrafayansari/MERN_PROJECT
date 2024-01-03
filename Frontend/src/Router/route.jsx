@@ -85,6 +85,7 @@ import Cultural from "../pages/Tours/Cultural";
 import Sightseeing from "../pages/Tours/Sightseeing";
 import Walking from "../pages/Tours/Walking";
 import { useNavigate } from "react-router-dom";
+import BookingForm from "../pages/Testfor";
 
   export default function Router() {
     const location=useLocation()
@@ -101,6 +102,7 @@ import { useNavigate } from "react-router-dom";
       <Route path="/cart" element={<Cart 
       />}></Route>
       <Route path="/leader" element={<Leader />}></Route>
+      <Route path="/bookform" element={<BookingForm />}></Route>
       <Route path="/" element={<Home />}></Route>
       <Route path="/nowloggedin" element={<Nowloggedin />}></Route>
 

@@ -1,17 +1,29 @@
-import React from 'react'
-import place from "./Allplace.json"
+import React, { useEffect, useState } from 'react'
+
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { PLACE } from '../../../redux/actions'
+import axios from 'axios'
 
 export default function All() {
+  const [upload,setupload]=useState([])
+useEffect(async() =>{
+await axios.get("http://localhost:5003/findupload")
+.then((res)=>setupload(res.data)).catch((e)=>console.log(e))
+
+}, [])
+
+
+
   const dispatch=useDispatch()
   return (
     <div className='flex flex-wrap justify-start gap-x-6 w-[87vw] ml-[6vw]'>
-      {place.map((item)=>{
+      {JSON.stringify(upload)}
+      {upload.map((item)=>{
     return(
         
 <div className='h-[550px] rounded-2xl mt-9 w-[365px]  flex flex-col bg-white'>
+  
   <Link to={"/bookings"} 
    onClick={()=>{
     dispatch({

@@ -16,7 +16,7 @@ router.post("/find",finduser)
 router.get("/findall",findperson)
 router.post("/findsign",Verify, findsignup)
 router.post("/uploadplace",Uploadplaces)
-router.post("/findupload",finduploads)
+router.get("/findupload",finduploads)
 router.post("/bookplace",bookplace)
 router.get("/findbookedplace",findbookedplace)
 //========================file upload=========================//
