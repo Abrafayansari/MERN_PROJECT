@@ -12,7 +12,7 @@ import 'aos/dist/aos.css';
 
 
 export default function Login() {
-  useEffect(() => {
+  useEffect(async() => {
     AOS.init({duration: 2000,
     easing: 'ease-out-back', 
     offset: 120,});

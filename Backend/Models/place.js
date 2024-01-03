@@ -5,6 +5,7 @@ const placeSchema = new mongoose.Schema({
    place: String,
     description:String,
     photo: String,
+    photoone:String,
     price: Number,
   });
   

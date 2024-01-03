@@ -17,7 +17,7 @@ import 'aos/dist/aos.css';
 // import Navbar from './components/Navbar
 
 function Signup() {
-  useEffect(() => {
+  useEffect(async() => {
     AOS.init({duration: 2000,
     easing: 'ease-out-back', 
     offset: 120,});
