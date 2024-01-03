@@ -81,9 +81,9 @@ exports.finduploads=async(req,res)=>{
     res.json(found)
 }
 exports.bookplace=async(req,res)=>{
-    const {user,place,name,phone}=req.body
+    const {user,place,name,phone,checkIn,checkOut,email,price}=req.body
     const created=await BookingModel.create({
-       user:user, place:place,name:name,phone:phone 
+       user:user, place:place,name:name,phone:phone,checkIn:checkIn,checkOut:checkOut,email:email,price:price 
     })
     res.json(created)
 }

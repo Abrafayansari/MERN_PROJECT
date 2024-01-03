@@ -17,7 +17,7 @@ import 'aos/dist/aos.css';
 // import Navbar from './components/Navbar
 
 function Signup() {
-  useEffect(async() => {
+  useEffect(() => {
     AOS.init({duration: 2000,
     easing: 'ease-out-back', 
     offset: 120,});
@@ -36,14 +36,14 @@ const[created,setcreated]=useState()
     
    
     await axios.post("http://localhost:5003/create",{
-      Username:Username,Email:Email,Password:Password
+      Username:Username,Email:Email,Password:Password 
     }).then((response)=>{
-      
+     
         setcreated(true)
 
         dispatch({
           type: LOGIN,
-          payload: {  Username:Username,Email:Email,Password:Password },
+          payload: {  Username:Username,Email:Email,Password:Password,userid:response.data._id },
         })
         navigate("/")
         

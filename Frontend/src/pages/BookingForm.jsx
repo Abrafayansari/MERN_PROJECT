@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 const BookingForm = () => {
   const [formData, setFormData] = useState({
-    place: '',
     name: '',
-    user: '',
+    place:"",
+    email:"",
     phone: '',
     price: '',
     checkin: '',
@@ -21,26 +21,14 @@ const BookingForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here, e.g., send data to a server
-    console.log('Form data submitted:', formData);
+    
+   
   };
 
   return (
     <div className="container mx-auto mt-8">
       <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-8 shadow-md rounded-md">
         <div className="mb-4">
-          <label htmlFor="place" className="block text-sm font-medium text-gray-600">
-            Place
-          </label>
-          <input
-            type="text"
-            id="place"
-            name="place"
-            value={formData.place}
-            onChange={handleChange}
-            className="mt-1 p-2 w-full border rounded-md"
-            required
-          />
         </div>
         <div className="mb-4">
           <label htmlFor="name" className="block text-sm font-medium text-gray-600">
@@ -57,14 +45,14 @@ const BookingForm = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="user" className="block text-sm font-medium text-gray-600">
-            User
+          <label htmlFor="email" className="block text-sm font-medium text-gray-600">
+            Email
           </label>
           <input
             type="text"
-            id="user"
-            name="user"
-            value={formData.user}
+            id="Email"
+            name="email"
+            value={formData.email}
             onChange={handleChange}
             className="mt-1 p-2 w-full border rounded-md"
             required
@@ -83,6 +71,22 @@ const BookingForm = () => {
             className="mt-1 p-2 w-full border rounded-md"
             required
           />
+           <div className="mb-4">
+          <label htmlFor="place" className="block text-sm font-medium text-gray-600">
+            Place
+          </label>
+          <input
+            type="number"
+            id="place"
+            disabled
+            name="place"
+            placeholder=''
+            value={formData.place}
+            onChange={handleChange}
+            className="mt-1 p-2 cursor-not-allowed w-full border rounded-md"
+            
+          />
+        </div>
         </div>
         <div className="mb-4">
           <label htmlFor="price" className="block text-sm font-medium text-gray-600">
@@ -91,11 +95,13 @@ const BookingForm = () => {
           <input
             type="number"
             id="price"
+            disabled
             name="price"
+            placeholder=''
             value={formData.price}
             onChange={handleChange}
-            className="mt-1 p-2 w-full border rounded-md"
-            required
+            className="mt-1 p-2 cursor-not-allowed w-full border rounded-md"
+            
           />
         </div>
         <div className="mb-4">

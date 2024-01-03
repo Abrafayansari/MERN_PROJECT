@@ -3,9 +3,11 @@ import { Link, useNavigate } from 'react-router-dom'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { HiArrowNarrowRight } from "react-icons/hi";
+import { useSelector } from 'react-redux';
 
 const Childtwo = () => {
-  useEffect(() => {
+  const globalState=useSelector(state=>state)
+  useEffect(async() => {
     AOS.init({duration: 2000,
     easing: 'ease-out-back', 
     offset: 120,});
@@ -23,7 +25,8 @@ const Childtwo = () => {
 <div data-aos="flip-left"
      data-aos-easing="ease-out-cubic"
      data-aos-duration="1800" className=" text-left p-2   " >
-  <p className='text-[#415161] ml-[4vw] text-[20px]'>Lorem ipsum dolor sit amet consectetu, a velit? Ut velit dicta recusandae aliquid consequatur dignissimos id molestias consectetu, a velit? Ut velit dicta recusandae aliquid consequaturquod.</p>
+  <p className='text-[#
+  ] ml-[4vw] text-[20px]'>Lorem ipsum dolor sit amet consectetu, a velit? Ut velit dicta recusandae aliquid consequatur dignissimos id molestias consectetu, a velit? Ut velit dicta recusandae aliquid consequaturquod.</p>
 </div>
 <div data-aos="zoom-out-down" className='mt-16 flex-col gap-7 text-[#415161]'>
   <h1 className='mb-3'>Los Angeles</h1>
@@ -49,7 +52,9 @@ const Childtwo = () => {
 
 
       </div>
+    
      </div>
+
       </div>
     </div>
   )

@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
 
 const bookingSchema = new mongoose.Schema({
-  place: {type:mongoose.Schema.Types.ObjectId, required:true, ref:'Place'},
   user: {type:mongoose.Schema.Types.ObjectId, required:true,ref:"login"},
-  checkIn: {type:Date},
-  checkOut: {type:Date},
+  place: {type:mongoose.Schema.Types.ObjectId, required:true, ref:'Place'},
   name: {type:String, required:true},
   phone: {type:String, required:true},
-  price: Number,
+  checkIn: {type:Date},
+  checkOut: {type:Date},
+  email:String,
+  price: Number
 });
 
 const BookingModel = mongoose.model('Booking', bookingSchema);

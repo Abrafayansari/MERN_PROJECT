@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import App from '../../React-spring/main'
+import App from '../../React-spring/Main'
 
 
 const Childone = () => {

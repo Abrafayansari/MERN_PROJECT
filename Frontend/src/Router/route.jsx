@@ -85,7 +85,7 @@ import Cultural from "../pages/Tours/Cultural";
 import Sightseeing from "../pages/Tours/Sightseeing";
 import Walking from "../pages/Tours/Walking";
 import { useNavigate } from "react-router-dom";
-import BookingForm from "../pages/Testfor";
+import BookingForm from "../pages/BookingForm";
 
   export default function Router() {
     const location=useLocation()

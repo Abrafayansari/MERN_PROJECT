@@ -7,9 +7,13 @@ import axios from 'axios'
 
 export default function All() {
   const [upload,setupload]=useState([])
-useEffect(async() =>{
-await axios.get("http://localhost:5003/findupload")
-.then((res)=>setupload(res.data)).catch((e)=>console.log(e))
+useEffect(() =>{
+  const Fetch=async()=>{
+    await axios.get("http://localhost:5003/findupload")
+    .then((res)=>setupload(res.data)).catch((e)=>console.log(e))
+  }
+  Fetch()
+
 
 }, [])
 
@@ -18,17 +22,17 @@ await axios.get("http://localhost:5003/findupload")
   const dispatch=useDispatch()
   return (
     <div className='flex flex-wrap justify-start gap-x-6 w-[87vw] ml-[6vw]'>
-      {JSON.stringify(upload)}
+      
       {upload.map((item)=>{
     return(
         
-<div className='h-[550px] rounded-2xl mt-9 w-[365px]  flex flex-col bg-white'>
+<div key={item.id}  className='h-[550px] rounded-2xl mt-9 w-[365px]  flex flex-col bg-white'>
   
   <Link to={"/bookings"} 
-   onClick={()=>{
+   onClick={()=>{ 
     dispatch({
       type:PLACE,
-      payload:{ tourid:item.id, tourname:item.name,price:item.price,place:item.place,photoone:item.photoone}
+      payload:{ placeid:item._id, tourname:item.name,price:item.price,place:item.place,photoone:item.photoone,description:item.description}
     })
       }}
   className='h-64 rounded-t-2xl  bg-cover '>

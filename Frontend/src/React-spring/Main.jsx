@@ -31,11 +31,11 @@ export default function App() {
     ref.current = []
     set([])
     ref.current.push(
-      setTimeout(() => set(["Explore", " Experience", "Enjoy"]), 2000)
+      setTimeout(() => set(["Explore", "Experience", "Enjoy"]), 2000)
     )
     ref.current.push(setTimeout(() => set(["Adventure", "Awaits....."]), 5000))
     ref.current.push(
-      setTimeout(() => set(["Discover", " Your", " World"]), 8000)
+      setTimeout(() => set(["Discover", "Your", "World"]), 8000)
     )
   }, [])
 
