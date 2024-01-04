@@ -39,7 +39,7 @@ export default function App() {
     )
   }, [])
 
-  useEffect(async() => {
+  useEffect(() => {
     reset()
     return () => ref.current.forEach(clearTimeout)
   }, [])

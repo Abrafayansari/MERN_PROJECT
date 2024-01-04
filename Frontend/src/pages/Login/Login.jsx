@@ -1,6 +1,7 @@
 import React, {  useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import { useDispatch, useSelector } from "react-redux";
+
 import axios from "axios"
 import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
@@ -12,7 +13,7 @@ import 'aos/dist/aos.css';
 
 
 export default function Login() {
-  useEffect(async() => {
+  useEffect(() => {
     AOS.init({duration: 2000,
     easing: 'ease-out-back', 
     offset: 120,});
@@ -39,10 +40,11 @@ const navigate=useNavigate()
         const Users=response.data
         const User=Users[0]
        const Username=User.Username
+       const userid=User._id
        console.log(Username)
                dispatch({
           type:LOGIN,
-          payload: {Username:Username,Email:Email,Password:Password }
+          payload: {Username:Username,Email:Email,Password:Password,userid:userid }
           
         })
         navigate("/")

@@ -7,11 +7,13 @@ import axios from 'axios'
 
 export default function All() {
   const [upload,setupload]=useState([])
-useEffect(() =>{
   const Fetch=async()=>{
     await axios.get("http://localhost:5003/findupload")
     .then((res)=>setupload(res.data)).catch((e)=>console.log(e))
   }
+  
+  useEffect(() =>{
+  
   Fetch()
 
 

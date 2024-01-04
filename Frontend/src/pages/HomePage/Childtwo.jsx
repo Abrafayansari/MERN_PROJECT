@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 
 const Childtwo = () => {
   const globalState=useSelector(state=>state)
-  useEffect(async() => {
+  useEffect(() => {
     AOS.init({duration: 2000,
     easing: 'ease-out-back', 
     offset: 120,});
@@ -15,7 +15,7 @@ const Childtwo = () => {
   const navigate=useNavigate()
   
   return (
-    <div className='h-[150vh] items-center w-[100vw] justify-evenly ml-[4vw] bg-white flex '>
+    <div className='h-[150vh] items-center w-[100%] justify-evenly  bg-white flex '>
       <div className='bg-white  h-[900px] flex mt-6 flex-col items-center  w-[390px]'>
 <div   data-aos="fade-down"
      data-aos-easing="linear"
