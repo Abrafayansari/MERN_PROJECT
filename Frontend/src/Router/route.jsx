@@ -86,6 +86,8 @@ import Sightseeing from "../pages/Tours/Sightseeing";
 import Walking from "../pages/Tours/Walking";
 import { useNavigate } from "react-router-dom";
 import BookingForm from "../pages/BookingForm";
+import Checkout from "../pages/Checkout";
+import Success from "../pages/Success";
 
   export default function Router() {
     const location=useLocation()
@@ -105,6 +107,8 @@ import BookingForm from "../pages/BookingForm";
       <Route path="/bookform" element={<BookingForm />}></Route>
       <Route path="/" element={<Home />}></Route>
       <Route path="/nowloggedin" element={<Nowloggedin />}></Route>
+      <Route path="/checkout" element={<Checkout />}></Route>
+      <Route path="/success" element={<Success />}></Route>
 
       {/* <Route path="/account" element={<Account />}></Route> */}
       <Route path="/notauthorized" element={<Notauthorized />}></Route>

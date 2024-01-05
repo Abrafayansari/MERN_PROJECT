@@ -3,10 +3,10 @@ const router = express.Router();
 const cloudinary = require("cloudinary").v2;
 const multer = require("multer");
 const fs = require("fs");
-
+const stripe=require("stripe")("sk_test_51OKLBeSIsiY4AVCkNMTathVDNyQd7aBMAfaBMKrCBG3MVOQJYj2RNRWgUF7TZvqoohMzKOV3wgQQPVxewt33q6l900too4GpUY")  
 
 const  {Verify}=require("../Middleware/VerifySignup")
-const {createuser, findperson, Uploadplaces, finduploads, bookplace, findbookedplace} = require("../controllers/projectlSignup")
+const {createuser, findperson, Uploadplaces, finduploads, bookplace, findbookedplace, findbookplaceofuser, Stripe} = require("../controllers/projectlSignup")
 const {deleteuser}=require("../controllers/projectlSignup")
 const {finduser,findsignup}=require("../controllers/projectlSignup");
 
@@ -19,6 +19,112 @@ router.post("/uploadplace",Uploadplaces)
 router.get("/findupload",finduploads)
 router.post("/bookplace",bookplace)
 router.get("/findbookedplace",findbookedplace)
+router.post("/finduserplace",findbookplaceofuser)
+//=======================Stripe=====================//
+router.post("/checkput",Stripe)
+router.get("/publishable-key", (req,res) => {
+    res.json({ publishable_key: "pk_test_51OKLBeSIsiY4AVCk6uYykDnlwr2Bj0YCdLZGztqmOSswcrMk9yWybT0naM4gJNhllbHmPD3ZvQF960eM9LXqZTLI00EW8rLwTi" }) ;
+  });
+//   router.post("/create-payment-intent", async (req,res) => {
+//     try {
+//         const customer = await stripe.customers.create({
+//             name: 'Amir',
+//             email: 'amir@example.com', // Provide the customer's email
+//             address: {
+//               line1: '123 Main St',
+//               line2:"sujjjksj", 
+//               city: 'Cityville',
+//               state: 'CA',
+//               postal_code: '12345',
+//               country: 'US',
+//             },
+//           });
+          
+             
+//             const paymentIntent = await stripe.paymentIntents.create({
+//                 amount: 1099,
+//                 currency: "usd",
+//                 payment_method_types: ["card"],
+//                 description: "Tour Booking - City Explorer Package",
+//                 customer: "Amir", // Replace with the actual customer name
+//                 shipping: {
+//                   name: "Amir",
+//                   address: {
+//                     line1: "123 Main St",
+//                     city: "Cityville",
+//                     state: "CA",
+//                     postal_code: "12345",
+//                     country: "US",
+//                   },
+//                 },
+//               })
+//               res.json({ client_secret: paymentIntent.client_secret})
+          
+           
+          
+//     } catch (error) {
+//         console.log(error)
+//     }
+   
+   
+      
+      
+  
+      
+//   });
+router.post("/create-payment-intent", async (req, res) => {
+    try {
+      // Check if the customer 'Amir' exists or create one
+      let customer = await stripe.customers.list({ email: 'amir@example.com', limit: 1 });
+  
+      if (customer.data.length === 0) {
+        // Customer does not exist, create a new customer
+        customer = await stripe.customers.create({
+          name: 'Amir',
+          email: 'amir@example.com',
+          address: {
+            line1: '123 Main St',
+            line2: 'sujjjksj',
+            city: 'Cityville',
+            state: 'CA',
+            postal_code: '12345',
+            country: 'US',
+          },
+        });
+      } else {
+        // Customer already exists, use the existing customer
+        customer = customer.data[0];
+      }
+  
+      // Now create the PaymentIntent
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount: 1099,
+        currency: 'usd',
+        payment_method_types: ['card'],
+        description: 'Tour Booking - City Explorer Package',
+        customer: customer.id, // Use the customer ID, not the name
+        shipping: {
+          name: 'Amir',
+          address: {
+            line1: '123 Main St',
+            city: 'Cityville',
+            state: 'CA',
+            postal_code: '12345',
+            country: 'US',
+          },
+        },
+      });
+  
+      // Respond with the client secret
+      res.json({ client_secret: paymentIntent.client_secret });
+  
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
+  
+  
 //========================file upload=========================//
 
 

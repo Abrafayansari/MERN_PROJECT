@@ -6,7 +6,7 @@ const mongoose=require("mongoose")
 const cloudinary=require("../Middleware/ImgUpload")
 const placeModel = require("../Models/place")
 const BookingModel = require("../Models/Booking")
-
+const stripe=require("stripe")
 exports.createuser = CatchAsyncError(async (req, res, next) => {
     const { Username, Email, Password } = req.body
     //  throw new customError("not found",404)
@@ -91,6 +91,46 @@ exports.findbookedplace=async(req,res)=>{
     const found=await BookingModel.find().populate("user").populate("place")
     res.json(found)
 }
+exports.findbookplaceofuser=async(req,res)=>{
+    const {user}=req.body
+    const found= await BookingModel.findOne({user:user})
+     res.json(found)
+}
+
+
+
+
+
+
+//===============================Stripe payment ================================//
+exports. Stripe=async(req,res)=>{
+    try {
+        const session=await stripe.checkOut.sessions.create({
+        
+            payment_method_types:["card"],
+            mode:"payment",
+            line_items:req.body.items.map(item =>{
+                return {
+                    price_data:{
+                        currency:"usd",
+                        product_data:{
+                            name:item.name
+                        },
+                        unit_amount:item.price
+                        
+                    },
+                    quantity:item.quantity
+                }
+            }),
+            success_url:"http://localhost:5173/success",
+            cancel_url:"http://localhost:5173/cancel"
+        })
+        res.json({url:session.url})
+    } catch (error) {
+        res.status(500).json({error:error.message})
+    }
+}
+
 
 
 

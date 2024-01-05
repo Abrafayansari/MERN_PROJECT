@@ -30,10 +30,10 @@ function Navbar() {
 
       <ToastContainer/>
         <Link
-          className="text-2xl font-serif  text-white"
+          className="text-2xl flex   items-center font-serif  text-white"
           to={"/home"}
         >
-          tourimo
+         <h1 className=""> tourimo</h1>
         </Link>
 
       </div>

@@ -25,8 +25,8 @@ const Childtwo = () => {
 <div data-aos="flip-left"
      data-aos-easing="ease-out-cubic"
      data-aos-duration="1800" className=" text-left p-2   " >
-  <p className='text-[#
-  ] ml-[4vw] text-[20px]'>Lorem ipsum dolor sit amet consectetu, a velit? Ut velit dicta recusandae aliquid consequatur dignissimos id molestias consectetu, a velit? Ut velit dicta recusandae aliquid consequaturquod.</p>
+  <p className='text-[#415161]
+   ml-[4vw] text-[20px]'>Explore the world with ease and excitement as you embark on unforgettable journeys with tourimo. Discover the beauty of diverse destinations, immerse yourself in unique cultures, and create memories that will last a lifetime.</p>
 </div>
 <div data-aos="zoom-out-down" className='mt-16 flex-col gap-7 text-[#415161]'>
   <h1 className='mb-3'>Los Angeles</h1>

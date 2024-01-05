@@ -17,7 +17,7 @@ function Profile() {
       <Navbar/>
       <form
       className="flex flex-col justify-center
-       items-center bg-black bg-opacity-70 mb-16 "
+       items-center  mb-16 "
         encType="multipart/form-data"
         style={{ padding: "20px" }}
         onSubmit={async(e) => {
@@ -53,9 +53,9 @@ function Profile() {
           alt=""
         />
       )}</div>
-       <div className=" text-white">
-<div>Name:{globalState.User.loginuser?.Username}</div>
-<div>Email:{globalState.User.loginuser?.Email}</div>
+       <div className=" text-black">
+<div>Name:{"   "} {globalState.User.loginuser?.Username}</div>
+<div>Email:{"   "}{globalState.User.loginuser?.Email}</div>
 
        </div>
         {/* <input
@@ -70,7 +70,7 @@ function Profile() {
         
         
       </form>
-      <Footer/>
+      
       
     </React.Fragment>
   );

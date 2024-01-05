@@ -2,14 +2,14 @@
 
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { LOGOUT } from '../../redux/actions';
 
 const CustomDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   const globalState=useSelector(state=>state)
   const dispatch=useDispatch()
-
+const navigate=useNavigate()
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -47,7 +47,7 @@ const CustomDropdown = () => {
               Account 
             </NavLink>
             <button
-              onClick={()=>dispatch({type:LOGOUT})}
+              onClick={()=>{dispatch({type:LOGOUT});navigate("/")}}
               className="block px-4 py-2 w-full text-left text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
             >
               Logout

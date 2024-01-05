@@ -3,7 +3,7 @@ const { connect } = require("./Database/projectconnection")
 const {handler}=require("./Middleware/Error")
 const cors=require("cors");
 const {router} =require("./Router/projectRoute");
-;
+const stripe=require("stripe")(process.env.VITE_STRIPE_SECRET_KEY)
 
 require('dotenv').config({ path: "./config.env" });
 

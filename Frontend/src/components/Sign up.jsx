@@ -45,6 +45,7 @@ const[created,setcreated]=useState()
           type: LOGIN,
           payload: {  Username:Username,Email:Email,Password:Password,userid:response.data._id },
         })
+        
         navigate("/")
         
       }
