@@ -20,8 +20,7 @@ router.get("/findupload",finduploads)
 router.post("/bookplace",bookplace)
 router.get("/findbookedplace",findbookedplace)
 router.post("/finduserplace",findbookplaceofuser)
-//=======================Stripe=====================//
-router.post("/checkput",Stripe)
+//=====================Stripe=====================//
 router.get("/publishable-key", (req,res) => {
     res.json({ publishable_key: "pk_test_51OKLBeSIsiY4AVCk6uYykDnlwr2Bj0YCdLZGztqmOSswcrMk9yWybT0naM4gJNhllbHmPD3ZvQF960eM9LXqZTLI00EW8rLwTi" }) ;
   });
@@ -65,57 +64,42 @@ router.get("/publishable-key", (req,res) => {
 //     } catch (error) {
 //         console.log(error)
 //     }
-   
-   
-      
-      
-  
-      
 //   });
 router.post("/create-payment-intent", async (req, res) => {
     try {
-      // Check if the customer 'Amir' exists or create one
-      let customer = await stripe.customers.list({ email: 'amir@example.com', limit: 1 });
+    const {price}=req.body
+      let customer = await stripe.customers.list({ email: 'Rafay@example.com', limit: 1 });
   
       if (customer.data.length === 0) {
-        // Customer does not exist, create a new customer
+       
         customer = await stripe.customers.create({
-          name: 'Amir',
-          email: 'amir@example.com',
+          name: 'Rafay',
+          email: 'Rafay@example.com',
           address: {
-            line1: '123 Main St',
-            line2: 'sujjjksj',
-            city: 'Cityville',
-            state: 'CA',
-            postal_code: '12345',
             country: 'US',
           },
         });
       } else {
-        // Customer already exists, use the existing customer
+        
         customer = customer.data[0];
       }
   
-      // Now create the PaymentIntent
+     
       const paymentIntent = await stripe.paymentIntents.create({
-        amount: 1099,
+        amount: price,
         currency: 'usd',
         payment_method_types: ['card'],
         description: 'Tour Booking - City Explorer Package',
         customer: customer.id, // Use the customer ID, not the name
         shipping: {
-          name: 'Amir',
+          name: 'Rafay',
           address: {
-            line1: '123 Main St',
-            city: 'Cityville',
-            state: 'CA',
-            postal_code: '12345',
             country: 'US',
           },
         },
-      });
+      }); 
   
-      // Respond with the client secret
+  
       res.json({ client_secret: paymentIntent.client_secret });
   
     } catch (error) {

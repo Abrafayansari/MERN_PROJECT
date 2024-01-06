@@ -11,7 +11,7 @@ export default function About(){
    <div><Aboutone/></div>
    <div><Abouttwo/></div>
 
-<div><Footer/></div>
+
 
 </>
  )

@@ -107,14 +107,14 @@ import Success from "../pages/Success";
       <Route path="/bookform" element={<BookingForm />}></Route>
       <Route path="/" element={<Home />}></Route>
       <Route path="/nowloggedin" element={<Nowloggedin />}></Route>
-      <Route path="/checkout" element={<Checkout />}></Route>
+      {/* <Route path="/checkout" element={<Checkout />}></Route> */}
       <Route path="/success" element={<Success />}></Route>
 
       {/* <Route path="/account" element={<Account />}></Route> */}
       <Route path="/notauthorized" element={<Notauthorized />}></Route>
       {/* <Route path="/tour" element={<Tour />}></Route> */}
       <Route path="/profile" element={<Profile />}></Route>
-      <Route path="/Bookings" element={<Bookings />}></Route>
+      
 
 
 
@@ -124,21 +124,23 @@ import Success from "../pages/Success";
           <Route path="" element={<Account />} />
         </Route>
 
-
+<Route path="/checkout" Component={Protected}>
+  <Route path="" element={<Checkout/>}/>
+</Route>
 
         <Route path="/account" element={<Account/>}>
-        <Route
+        {/* <Route
             path="profile"
             element={<Profile/>}
-          ></Route>
+          ></Route> */}
            <Route
           path="accomodations"
           element={<Acco/>}
-        ></Route>
-         <Route
+        ></Route> 
+         {/* <Route
           path="bookings"
           element={<MyBookings/>}
-        ></Route>
+        ></Route> */}
 
         </Route>
         <Route path="/tour" element={<Tour/>}>
@@ -148,6 +150,10 @@ import Success from "../pages/Success";
 <Route path="sightseeing" element={<Sightseeing/>}></Route>
 <Route path="walking" element={<Walking/>}></Route>
         </Route >
+
+        <Route path="/Bookings" Component={Protected}>
+          <Route path="" element={<Bookings/>}/>
+        </Route>
         </Routes>
     
     

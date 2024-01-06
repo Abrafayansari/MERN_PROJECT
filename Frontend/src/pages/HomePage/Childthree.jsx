@@ -6,8 +6,8 @@ const Childthree = () => {
       <div><h1 className='text-[48px]  ml-[10vw] font-bold text-[#1c262f]'>Tour highlights</h1>
       <p className='text-[#415161] ml-[10vw] w-[60vw] mt-5 text-[20px]'>Would you like to go on a photo tour? Our guides know exactly what you need! The sceneries we have for you are going to make your vacation unforgettable!</p></div>
       <div className='mt-20 flex ml-[10vw] gap-6 text-center'>
-        <div>
-        <div className='h-80 w-[20vw] border-2 bg-cover bg-[url("https://images6.alphacoders.com/109/1092054.jpg")]'></div>
+        <div className=''>
+        <div className='h-80 w-[20vw]  transition-all border-2 bg-cover bg-[url("https://images6.alphacoders.com/109/1092054.jpg")]'></div>
         <h1 className='text-[#415161] text-3xl font-bold mt-6 '>Tokyo</h1>
         <h1  className='text-[#415161]'>Day <span>1</span></h1>
         </div>

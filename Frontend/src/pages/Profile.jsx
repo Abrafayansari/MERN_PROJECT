@@ -53,9 +53,9 @@ function Profile() {
           alt=""
         />
       )}</div>
-       <div className=" text-black">
-<div>Name:{"   "} {globalState.User.loginuser?.Username}</div>
-<div>Email:{"   "}{globalState.User.loginuser?.Email}</div>
+       <div className=" text-[#415161] text-xl">
+<div className="flex gap-2"><h1>Name{"   "}:</h1> <h1>{globalState.User.loginuser?.Username}</h1></div>
+<div className="flex gap-2"><h1>Email{"   "}:</h1><h1>{globalState.User.loginuser?.Email}</h1></div>
 
        </div>
         {/* <input

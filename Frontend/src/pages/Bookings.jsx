@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { BOOKING } from '../../redux/actions'
 export const Bookings = () => {
+  const dispatch=useDispatch()
+  const bookingstate=useSelector(state=>state.Booking) 
   const  navigate=useNavigate()
   const placestate=useSelector(state=>state.Place)
   const userstate=useSelector((state)=>state.User)
@@ -46,7 +49,7 @@ export const Bookings = () => {
       <h1 className='text-white text-5xl ml-[8vw]'>{placestate.currentplace.tourname}</h1>
      </div></div>
      <div className='flex flex-col ml-[8vw] h-[30vh] justify-between mt-20'>
-
+{JSON.stringify(bookingstate)}
       <h1 className='text-4xl ml-[30vw] font-bold text-[#364452] underline'>Booking details </h1>
       
       <div className='text-2xl mt-20 text-[#364452]'><h1>{placestate.currentplace.place}</h1><h1 className='text-[#ED1C24] mt-2 mb-2'>
@@ -132,6 +135,12 @@ export const Bookings = () => {
         </div>
         <div className="mt-4 flex items-center justify-start">
           <button
+          onClick={() => {
+            dispatch({
+              type: BOOKING,
+              payload: {  tourname:placestate.currentplace.place, price:placestate.currentplace.price, place: placestate.currentplace.place, photoone: placestate.currentplace.photoone, description:placestate.currentplace.description,checkIn:formData.checkin,checkOut:formData.checkout }
+            })
+          }}
             type="submit"
             className="bg-[#ED1C24] text-white py-2 px-4 rounded-md  focus:outline-none focus:border-blue-300"
           >

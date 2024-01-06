@@ -31,8 +31,8 @@ export default function Account() {
       {/* <NavLink
     to={"/account/bookings"} className={({isActive})=> isActive ? acitvelink:normallink}>My bookings </NavLink> */}
       </div>
-      <div className=' h-96 mt-16 w-[100vw]'>
-       <div className='flex justify-start ml-[9vw]'> <Profile/></div>
+      <div className=' h-96 mt-4 w-[100vw]'>  
+       <div className='flex justify-start ml-[8vw]'> <Profile/></div>
        <div className=''><MyBookings/></div>
       
       </div>

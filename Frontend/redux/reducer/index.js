@@ -1,4 +1,4 @@
-import { LOGIN,LOGOUT, PLACE} from "../actions";
+import { BOOKING, LOGIN,LOGOUT, PLACE} from "../actions";
 const userinitialstate ={}
 export const UserReducer=(state = userinitialstate,action)=>{
     switch (action.type) {
@@ -20,4 +20,10 @@ export const Placereducer=( state = {},action)=>{
         
     }
     return state
+}
+export const Bookingreducer=(state={},action)=>{
+    switch (action.type) {
+        case BOOKING:
+            return {...state,currentbooking:action.payload}
+    }return state
 }
