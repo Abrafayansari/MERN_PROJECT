@@ -11,6 +11,7 @@ export const Bookings = () => {
   const  navigate=useNavigate()
   const placestate=useSelector(state=>state.Place)
   const userstate=useSelector((state)=>state.User)
+  const today = new Date().toISOString().split('T')[0];
   const [formData, setFormData] = useState({
    
     name: '',
@@ -21,6 +22,7 @@ export const Bookings = () => {
     checkin: '',
     checkout: '',
   });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData( {  
@@ -112,6 +114,7 @@ export const Bookings = () => {
           <input
             type="date"
             id="checkin"
+            min={today}
             name="checkin"
             value={formData.checkin}
             onChange={handleChange}
@@ -127,6 +130,7 @@ export const Bookings = () => {
             type="date"
             id="checkout"
             name="checkout"
+            min={today}
             value={formData.checkout}
             onChange={handleChange}
             className="mt-1 p-2 w-[25vw] ml-2 border rounded-md"
@@ -138,7 +142,7 @@ export const Bookings = () => {
           onClick={() => {
             dispatch({
               type: BOOKING,
-              payload: {  tourname:placestate.currentplace.place, price:placestate.currentplace.price, place: placestate.currentplace.place, photoone: placestate.currentplace.photoone, description:placestate.currentplace.description,checkIn:formData.checkin,checkOut:formData.checkout }
+              payload: {  tourname:placestate.currentplace.place, price:placestate.currentplace.price, place: placestate.currentplace.place, photoone: placestate.currentplace.photoone, description:placestate.currentplace.description,checkIn:formData.checkin,checkOut:formData.checkout,email:formData.email,name:formData.name }
             })
           }}
             type="submit"

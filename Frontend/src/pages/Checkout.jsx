@@ -4,6 +4,7 @@ import axios from "axios";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from './CheckoutForm';
+import { useSelector } from 'react-redux';
 
 const initStripe = async () => {
 
@@ -14,15 +15,15 @@ const initStripe = async () => {
   };
 const Checkout = () => {
     const stripePromise = initStripe();
-
+const bookingstate=useSelector(state=>state.Booking)
     const [clientSecretSettings, setClientSecretSettings] = useState({
         clientSecret: "",
         loading: true,
       });
       useEffect(() => {
         async function createPaymentIntent() {
-           await axios.post("http://localhost:5003/create-payment-intent", {})
-          .then((res)=>{setClientSecretSettings({
+           await axios.post("http://localhost:5003/create-payment-intent", {price:bookingstate.currentbooking.price,email:bookingstate.currentbooking.email,name:bookingstate.currentbooking.name})
+          .then((res)=>{console.log(res.data);setClientSecretSettings({
             clientSecret: res.data.client_secret,
             loading: false,
           });});

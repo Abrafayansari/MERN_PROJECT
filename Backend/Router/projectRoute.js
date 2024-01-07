@@ -24,60 +24,21 @@ router.post("/finduserplace",findbookplaceofuser)
 router.get("/publishable-key", (req,res) => {
     res.json({ publishable_key: "pk_test_51OKLBeSIsiY4AVCk6uYykDnlwr2Bj0YCdLZGztqmOSswcrMk9yWybT0naM4gJNhllbHmPD3ZvQF960eM9LXqZTLI00EW8rLwTi" }) ;
   });
-//   router.post("/create-payment-intent", async (req,res) => {
-//     try {
-//         const customer = await stripe.customers.create({
-//             name: 'Amir',
-//             email: 'amir@example.com', // Provide the customer's email
-//             address: {
-//               line1: '123 Main St',
-//               line2:"sujjjksj", 
-//               city: 'Cityville',
-//               state: 'CA',
-//               postal_code: '12345',
-//               country: 'US',
-//             },
-//           });
-          
-             
-//             const paymentIntent = await stripe.paymentIntents.create({
-//                 amount: 1099,
-//                 currency: "usd",
-//                 payment_method_types: ["card"],
-//                 description: "Tour Booking - City Explorer Package",
-//                 customer: "Amir", // Replace with the actual customer name
-//                 shipping: {
-//                   name: "Amir",
-//                   address: {
-//                     line1: "123 Main St",
-//                     city: "Cityville",
-//                     state: "CA",
-//                     postal_code: "12345",
-//                     country: "US",
-//                   },
-//                 },
-//               })
-//               res.json({ client_secret: paymentIntent.client_secret})
-          
-           
-          
-//     } catch (error) {
-//         console.log(error)
-//     }
-//   });
+
 router.post("/create-payment-intent", async (req, res) => {
   try {
-    // Check if the customer 'Amir' exists or create one
-    let customer = await stripe.customers.list({ email: 'amir@example.com', limit: 1 });
+    // Check if the customer 'Amir' exists or create 
+    const {price,email,name}=req.body
+    let customer = await stripe.customers.list({ email:email, limit: 1 });
 
     if (customer.data.length === 0) {
       // Customer does not exist, create a new customer
       customer = await stripe.customers.create({
-        name: 'Amir',
-        email: 'amir@example.com',
+        name: name,
+        email:email,
         address: {
           line1: '123 Main St',
-          line2: 'sujjjksj',
+          line2: 'sukkur',
           city: 'Cityville',
           state: 'CA',
           postal_code: '12345',
@@ -91,13 +52,13 @@ router.post("/create-payment-intent", async (req, res) => {
 
     // Now create the PaymentIntent
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: 1099,
+      amount:price*100 ,
       currency: 'usd',
       payment_method_types: ['card'],
       description: 'Tour Booking - City Explorer Package',
       customer: customer.id, // Use the customer ID, not the name
       shipping: {
-        name: 'Amir',
+        name: name,
         address: {
           line1: '123 Main St',
           city: 'Cityville',

@@ -148,7 +148,8 @@ const[created,setcreated]=useState()
       </div>
       </div>
       </div>
-      <div style={{position:"fixed" ,bottom:"0", left:"0"}} className="">
+      <div className="w-full"
+       style={{position:"fixed" ,bottom:"0", left:"0"}} >
       <Footer/>
       </div>
       

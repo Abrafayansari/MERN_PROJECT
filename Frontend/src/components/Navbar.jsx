@@ -25,7 +25,7 @@ function Navbar() {
   const normallink = " text-white p-2 px-5 hover:text-[#ED1C24]  font-medium"
   return (
 
-    <header  className=" z-10 shadow-lg bg-black bg-opacity-40 hover:shadow-xl flex fixed top-0 left-0 h-16 p-4 items-center justify-between   w-[100vw]">
+    <header  className=" z-10 shadow-lg bg-black bg-opacity-40 hover:shadow-xl flex fixed top-0 left-0 h-16 p-4 items-center justify-between w-full">
       <div className="flex items-center ">
 
       <ToastContainer/>

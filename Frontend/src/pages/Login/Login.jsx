@@ -10,6 +10,8 @@ import Footer from "../../components/Footer";
 import "../Style.css"
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { toast } from "react-toastify";
+
 
 
 export default function Login() {
@@ -51,7 +53,7 @@ const navigate=useNavigate()
       }
       )
     
-    .catch((e)=>{console.log(e);setlogin(false)})
+    .catch((e)=>{console.log(e);setlogin(false);toast.error("Invalid Email or password")})
   //   login === true? "successfully loggined":"Invalid Username or Password"
    
    
@@ -83,7 +85,7 @@ const navigate=useNavigate()
           
          
          
-         {login === false? <div className="text-red-600">Invalid Email or password</div>: "" }
+      
          
         <div className="flex justify-center mb-7 mt-16"> <label className=" " htmlFor="name"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
   <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
@@ -120,7 +122,7 @@ const navigate=useNavigate()
       </form>
      
       </div>
-<div style={{position:"fixed", bottom:"0", left:"0" }}>
+<div className="w-full" style={{position:"fixed", bottom:"0", left:"0" }}>
       <Footer/>
       </div>
      

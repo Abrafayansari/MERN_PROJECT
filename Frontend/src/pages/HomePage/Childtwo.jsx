@@ -15,8 +15,8 @@ const Childtwo = () => {
   const navigate=useNavigate()
   
   return (
-    <div className='h-[150vh] items-center w-[100%] justify-evenly  bg-white flex '>
-      <div className='bg-white  h-[900px] flex mt-6 flex-col items-center  w-[390px]'>
+    <div className='h-[150vh] items-center w-screen justify-evenly flex  bg-white  '>
+      <div className='bg-white  h-[900px] flex mt-6 flex-col items-center  w-[30vw]'>
 <div   data-aos="fade-down"
      data-aos-easing="linear"
      data-aos-duration="1500" className=' mt-4 text-center w-[25vw]'>

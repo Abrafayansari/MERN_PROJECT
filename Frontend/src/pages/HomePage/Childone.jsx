@@ -16,10 +16,10 @@ const Childone = () => {
   //   return () => clearInterval(intervalId);
   // }, [selectedImage, images]);
   return (
-  <div id="firstchild" className={`flex  h-[100vh] w-[100%] bg-cover flex-col overflow-hidden `} style={{transition: "all",backgroundImage: `url("https://i.pinimg.com/originals/cd/5c/f1/cd5cf1b48962ccd7eec87a6f14675999.gif")`}}>
+  <div id="firstchild" className={`flex  h-[100vh] w-full bg-cover flex-col overflow-hidden `} style={{transition: "all",backgroundImage: `url("https://i.pinimg.com/originals/cd/5c/f1/cd5cf1b48962ccd7eec87a6f14675999.gif")`}}>
     
      {/* <h1 className='mt-40 ml-[7vw]'>Adventure Awaits,</h1> <h1 className='ml-[14vw]'>Explore More</h1>  */}
-   <div className=" text-white h-[100vh]   w-[100vw] rounded-md bg-black flex flex-col  bg-opacity-60  text-[50px] " > 
+   <div className=" text-white h-[100vh]  rounded-md bg-black flex flex-col  bg-opacity-60  text-[50px] " > 
    <div className='mt-40  ml-[8vw]'>
    <App/>
    </div>

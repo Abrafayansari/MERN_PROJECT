@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useStripe, useElements, PaymentElement } from '@stripe/react-stripe-js';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-
+import { useSelector } from 'react-redux';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const CheckoutForm = () => {
+  useEffect(() => {
+    AOS.init({duration: 2000,
+    easing: 'ease-out-back', 
+    offset: 120,});
+  }, []);
+  const bookingstate=useSelector(state=>state.Booking)
   const stripe = useStripe();
   const navigate=useNavigate()
   const elements = useElements();
@@ -21,14 +29,17 @@ const CheckoutForm = () => {
     const { error } = await stripe.confirmPayment({
       elements,
 
-      confirmParams: Swal.fire({
-          title: 'Payment Successful!',
-          text: 'Thank you for booking your tour with us.',
-          icon: 'success',
-        }).then(()=> {navigate("/account")})
+      confirmParams:{
+        return_url: 'http://localhost:5173/',
+      }
+      //  Swal.fire({
+      //     title: 'Payment Successful!',
+      //     text: 'Thank you for booking your tour with us.',
+      //     icon: 'success',
+      //   })
 
 
-        // return_url: 'http://localhost:5173/',
+       
       ,
     })
 
@@ -40,21 +51,24 @@ const CheckoutForm = () => {
     }
   };
 
-  return (<>
+  return (<div style={{backgroundImage:`url(${bookingstate.currentbooking.photoone})`}} className='bg-cover  flex justify-center items-center text-center w-screen h-screen'>
     <Navbar/>
-    <form onSubmit={handleSubmit}>
-      <h1 className='text-3xl font-bold mb-16 text-[#415161] ml-16 '>CheckOut</h1>
+    <div data-aos="zoom-out" className='w-[30vw]  h-[75vh] flex justify-center items-center text-center rounded-lg bg-white'>    <form className='w-[25vw]  ' onSubmit={handleSubmit}>
+      <h1 className='text-3xl font-bold mb-16 text-[#415161]  '>CheckOut</h1>
+      
       <PaymentElement />
-      <button disabled={!stripe} className='bg-[#ED1C24] px-4 p-2 rounded-md text-white mt-4 text-lg'>
-        pay
+      <button disabled={!stripe} className='bg-[#ED1C24] flex gap-5 px-4 p-2 rounded-md text-white mt-4 text-lg'>
+        Pay{"                                   "}${bookingstate.currentbooking.price}
       </button>
 
       {errorMessage && <div>{errorMessage}</div>}
     </form>
+    </div>
+
     <div className='fixed bottom-0 left-0 '>
     <Footer/></div>
 
-    </> );
+    </div> );
 };
 
 export default CheckoutForm;

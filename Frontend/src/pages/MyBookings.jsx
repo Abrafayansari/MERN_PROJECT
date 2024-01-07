@@ -33,18 +33,18 @@ useEffect(() => {
 
 
   return (
-    <div className='h-[100vh] w-[100vw] '>
-         < h1 className=" text-[#415161] font-bold ml-[9vw] text-4xl " >My Bookings   </h1>
+    <div className='h-screen w-screen '>
+         < h1 className=" text-[#415161] font-bold ml-[9vw]  text-4xl " >My Bookings   </h1>
          
-      <div className='flex gap-7 ml-[5vw]'>
+      <div className='flex gap-7 ml-[5vw] w-[40vw]'>
 {info.length>=1 ? info.map((item,index)=>{
   return(
-  <div key={index} className='flex'>  
+  <div key={index} className='flex flex-col w-[25vw] border-black border-2 mt-10 ml-[5vw]'>  
 
-    <div style={{backgroundImage:`url(${item.place.photoone})`}} className='h-40 w-40 rounded-full ml-[5vw] bg-cover  mt-16 '>
+    <div style={{backgroundImage:`url(${item.place.photoone})`}} className='h-52 w-[20vw]  ml-[2vw] bg-cover  mt-9   '>
         
         </div>
-        <div className='h-40  flex flex-col  mt-16 gap-8'>
+        <div className='h-40  flex flex-col  mt-16 gap-2'>
         <h1 className='text-[#415161] text-2xl font-bold'> Destination: <span className='text-xl font-normal'>{item.place.place}</span></h1>
         <h1 className='text-[#415161] text-2xl font-bold'> From:<span className='text-lg font-normal'>{item.checkIn}</span></h1>
         <h1 className='text-[#415161] text-2xl font-bold'> to:<span className='text-lg font-normal'>{item.checkOut}</span></h1>

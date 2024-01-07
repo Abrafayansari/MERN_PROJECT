@@ -26,7 +26,7 @@ export default function Account() {
     
      
      <div className='flex flex-col mt-12 '>
-      <div className='flex  gap-x- mt-28 ml-[9vw]   justify-start  '>
+      <div className='flex  gap-x- mt- ml-[9vw]   justify-start  '>
      < h1 className=" text-[#415161] font-bold text-4xl " >My profile</h1>
       {/* <NavLink
     to={"/account/bookings"} className={({isActive})=> isActive ? acitvelink:normallink}>My bookings </NavLink> */}
