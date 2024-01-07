@@ -19,7 +19,7 @@ export default function Tour() {
 </div>
 <div className='w-1/2  h-12 flex justify-between ml-24'>
   
-  <NavLink exact to={"/tour/all"} className={({ isActive }) => isActive ? active : normal}>All</NavLink>
+  <NavLink to={"/tour/all"} className={({ isActive }) => isActive ? active : normal}>All</NavLink>
   <NavLink to={"/tour/cultural"} className={({ isActive }) => isActive ? active : normal}>Cultural</NavLink>
   <NavLink to={"/tour/sightseeing"} className={({ isActive }) => isActive ? active : normal}>Sightseeing</NavLink>
   <NavLink to={"/tour/walking"} className={({ isActive }) => isActive ? active : normal}>Walking</NavLink>

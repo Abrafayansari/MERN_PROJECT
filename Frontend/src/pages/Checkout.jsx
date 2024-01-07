@@ -6,15 +6,15 @@ import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from './CheckoutForm';
 
 const initStripe = async () => {
-   
+
     const res = await axios.get("http://localhost:5003/publishable-key");
     const publishableKey = await res.data.publishable_key;
-  
+
     return loadStripe(publishableKey);
   };
 const Checkout = () => {
     const stripePromise = initStripe();
-   
+
     const [clientSecretSettings, setClientSecretSettings] = useState({
         clientSecret: "",
         loading: true,
@@ -26,8 +26,8 @@ const Checkout = () => {
             clientSecret: res.data.client_secret,
             loading: false,
           });});
-    
-          
+
+
         }
         createPaymentIntent();
       }, []);
@@ -51,5 +51,5 @@ const Checkout = () => {
       </div>
     );
   };
-  
+
   export default Checkout;

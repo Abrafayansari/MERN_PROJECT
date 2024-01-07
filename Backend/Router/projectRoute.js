@@ -66,47 +66,56 @@ router.get("/publishable-key", (req,res) => {
 //     }
 //   });
 router.post("/create-payment-intent", async (req, res) => {
-    try {
-    const {price}=req.body
-      let customer = await stripe.customers.list({ email: 'Rafay@example.com', limit: 1 });
-  
-      if (customer.data.length === 0) {
-       
-        customer = await stripe.customers.create({
-          name: 'Rafay',
-          email: 'Rafay@example.com',
-          address: {
-            country: 'US',
-          },
-        });
-      } else {
-        
-        customer = customer.data[0];
-      }
-  
-     
-      const paymentIntent = await stripe.paymentIntents.create({
-        amount: price,
-        currency: 'usd',
-        payment_method_types: ['card'],
-        description: 'Tour Booking - City Explorer Package',
-        customer: customer.id, // Use the customer ID, not the name
-        shipping: {
-          name: 'Rafay',
-          address: {
-            country: 'US',
-          },
+  try {
+    // Check if the customer 'Amir' exists or create one
+    let customer = await stripe.customers.list({ email: 'amir@example.com', limit: 1 });
+
+    if (customer.data.length === 0) {
+      // Customer does not exist, create a new customer
+      customer = await stripe.customers.create({
+        name: 'Amir',
+        email: 'amir@example.com',
+        address: {
+          line1: '123 Main St',
+          line2: 'sujjjksj',
+          city: 'Cityville',
+          state: 'CA',
+          postal_code: '12345',
+          country: 'US',
         },
-      }); 
-  
-  
-      res.json({ client_secret: paymentIntent.client_secret });
-  
-    } catch (error) {
-      console.log(error);
-      res.status(500).json({ error: 'Internal Server Error' });
+      });
+    } else {
+      // Customer already exists, use the existing customer
+      customer = customer.data[0];
     }
-  });
+
+    // Now create the PaymentIntent
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: 1099,
+      currency: 'usd',
+      payment_method_types: ['card'],
+      description: 'Tour Booking - City Explorer Package',
+      customer: customer.id, // Use the customer ID, not the name
+      shipping: {
+        name: 'Amir',
+        address: {
+          line1: '123 Main St',
+          city: 'Cityville',
+          state: 'CA',
+          postal_code: '12345',
+          country: 'US',
+        },
+      },
+    });
+
+    // Respond with the client secret
+    res.json({ client_secret: paymentIntent.client_secret });
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
   
   
 //========================file upload=========================//
