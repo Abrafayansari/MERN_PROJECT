@@ -30,27 +30,33 @@ const UserBookings=async()=>{
 useEffect(() => {
   UserBookings()
 }, [])
-
+const formatDate = (dateString) => {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(dateString).toLocaleDateString('en-US',options);
+};
 
   return (
     <div className='h-screen w-screen '>
          < h1 className=" text-[#415161] font-bold ml-[9vw]  text-4xl " >My Bookings   </h1>
          
-      <div className='flex gap-7 ml-[5vw] w-[40vw]'>
+      <div className='flex flex-col gap-7 ml-[5vw] w-[40vw]'>
 {info.length>=1 ? info.map((item,index)=>{
   return(
-  <div key={index} className='flex flex-col w-[25vw] border-black border-2 mt-10 ml-[5vw]'>  
+  <div key={index} className='flex  w-[50vw] shadow-2xl h-64 items-center rounded-lg border-[1px] mt-10 ml-[5vw]'>  
 
-    <div style={{backgroundImage:`url(${item.place.photoone})`}} className='h-52 w-[20vw]  ml-[2vw] bg-cover  mt-9   '>
+    <div style={{backgroundImage:`url(${item.place.photoone})`}} className='h-52 drop-shadow-2xl w-[20vw]  ml-[2vw] bg-cover     '> 
         
         </div>
-        <div className='h-40  flex flex-col  mt-16 gap-2'>
-        <h1 className='text-[#415161] text-2xl font-bold'> Destination: <span className='text-xl font-normal'>{item.place.place}</span></h1>
-        <h1 className='text-[#415161] text-2xl font-bold'> From:<span className='text-lg font-normal'>{item.checkIn}</span></h1>
-        <h1 className='text-[#415161] text-2xl font-bold'> to:<span className='text-lg font-normal'>{item.checkOut}</span></h1>
+        
+        <div className='h-40  flex flex-col  ml-[4vw] mt-14 gap-2'>
+        <ol>
+        <li className='text-[#415161] text-2xl font-bold'> Destination: <span className='text-xl font-normal'>{item.place.place}</span></li>
+        <li className='text-[#415161] text-2xl font-bold'> From:<span className='text-lg font-normal'>{formatDate(item.checkIn)}</span></li>
+        <li className='text-[#415161] text-2xl font-bold'> to:<span className='text-lg font-normal'>{formatDate(item.checkOut)}</span></li>
+        </ol>
         </div>
   
-  
+        
         </div>)
 
   

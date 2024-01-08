@@ -17,12 +17,13 @@ function Home() {
         {"body{background-image: url('')}"}
       </style>
     </Helmet>
-   <Navbar/>
+   
    <div id="parent" className= "flex flex-col gap-y-44 h-[100vh] ">
+    <Template>
    <div><Childone/></div>
    <div><Childtwo/></div>
    <div><Childthree/></div>
-<div><Footer/></div>
+   </Template>
 
 
 

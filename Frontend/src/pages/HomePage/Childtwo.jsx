@@ -6,7 +6,7 @@ import { HiArrowNarrowRight } from "react-icons/hi";
 import { useSelector } from 'react-redux';
 
 const Childtwo = () => {
-  const globalState=useSelector(state=>state)
+
   useEffect(() => {
     AOS.init({duration: 2000,
     easing: 'ease-out-back', 
@@ -15,7 +15,7 @@ const Childtwo = () => {
   const navigate=useNavigate()
   
   return (
-    <div className='h-[150vh] items-center w-screen justify-evenly flex  bg-white  '>
+    <div className='h-[200vh] items-center w-screen justify-evenly flex  bg-white  '>
       <div className='bg-white  h-[900px] flex mt-6 flex-col items-center  w-[30vw]'>
 <div   data-aos="fade-down"
      data-aos-easing="linear"

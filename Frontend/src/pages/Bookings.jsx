@@ -5,18 +5,35 @@ import Navbar from '../components/Navbar'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { BOOKING } from '../../redux/actions'
+import Template from "../components/Template"
+import Checkout from './Checkout'
 export const Bookings = () => {
+  const booking=()=>{
+    return <div>
+<div>
+<h1>Name</h1>
+<h1></h1>
+<h1></h1>
+</div> <div>
+  <Checkout/>
+</div>
+
+    </div>
+  }
   const dispatch=useDispatch()
   const bookingstate=useSelector(state=>state.Booking) 
   const  navigate=useNavigate()
   const placestate=useSelector(state=>state.Place)
   const userstate=useSelector((state)=>state.User)
   const today = new Date().toISOString().split('T')[0];
-  const [formData, setFormData] = useState({
+  const [submit,setsubmit]=useState(false)
+
+     const [formData, setFormData] = useState({
    
     name: '',
     place:"",
     email:"",
+    guests:"",
     phone: '',
     price: '',
     checkin: '',
@@ -32,26 +49,29 @@ export const Bookings = () => {
   };
   const handleSubmit = async(e) => {
     e.preventDefault();
+    
     await axios.post("http://localhost:5003/bookplace",{
-      user:userstate.loginuser.userid, place:placestate.currentplace.placeid,name:formData.name,phone:formData.phone,checkIn:formData.checkin,checkOut:formData.checkout,email:formData.email,price: placestate.currentplace.price
-    }).then(()=>{toast.success("your tour will be booked");
+      user:userstate.loginuser.userid, place:placestate.currentplace.placeid,name:formData.name,phone:formData.phone,checkIn:formData.checkin,checkOut:formData.checkout,email:formData.email,guests:formData.guests,price: placestate.currentplace.price
+    }).then(()=>{toast.success("response submited");
   setTimeout(() => {
-    navigate("/checkout")
-  }, 2000);
+    setsubmit(true)
+    // navigate("/checkout")
+  }, 3000);
   }).catch((e)=>{ console.log(e); toast.error("something went wrong")})
    
   };
 
   return (<div>
-  <Navbar/>
+  
   <div className='h-[100vh]'>
+    <Template>
      <div style={{backgroundImage:`url(${placestate.currentplace.photoone})`}} className="h-[90vh]  w-[100vw] bg-cover flex flex-col justify-center">
       <div className='h-[90vh] w-[100vw] bg-black bg-opacity-50 flex flex-col justify-center'>
      <h1 className='text-white text-7xl ml-[5vw]  font-medium '>{placestate.currentplace.place}</h1>
       <h1 className='text-white text-5xl ml-[8vw]'>{placestate.currentplace.tourname}</h1>
      </div></div>
      <div className='flex flex-col ml-[8vw] h-[30vh] justify-between mt-20'>
-{JSON.stringify(bookingstate)}
+
       <h1 className='text-4xl ml-[30vw] font-bold text-[#364452] underline'>Booking details </h1>
       
       <div className='text-2xl mt-20 text-[#364452]'><h1>{placestate.currentplace.place}</h1><h1 className='text-[#ED1C24] mt-2 mb-2'>
@@ -59,7 +79,7 @@ export const Bookings = () => {
       <div className='flex  gap-4 text-[#40505f] w-[50vw]'><h1>{placestate.currentplace.description}</h1></div>
      </div>
      <div className="ml-[7vw] w-fit mt-28 ">
-      <form onSubmit={handleSubmit} className=" mx-auto bg-white p-8  rounded-md">
+     {submit==false? <form onSubmit={handleSubmit} className=" mx-auto bg-white p-8  rounded-md">
        <div className='flex flex-col items-center justify-center w-[40vw]'>
         <div className="mb-4 flex items-center justify-start
         ">
@@ -106,6 +126,24 @@ export const Bookings = () => {
           />
           
         </div>
+        <div className="mb-4 flex items-center justify-start">
+          <label htmlFor="guests" className="block text-sm font-medium text-gray-600">
+            Guests:
+          </label>
+          <input
+            type="number"
+            id="guests"
+            name="guests"
+            defaultValue={1}
+            placeholder='1'
+            value={formData.guests}
+            onChange={handleChange}
+            min={1}
+            className="mt-1 p-2 w-[25vw] border ml-2 rounded-md"
+            required
+          />
+          
+        </div>
       
         <div className="mb-4 flex items-center justify-start">
           <label htmlFor="checkin" className="block text-sm mr-3 font-medium text-gray-600">
@@ -118,7 +156,7 @@ export const Bookings = () => {
             name="checkin"
             value={formData.checkin}
             onChange={handleChange}
-            className="mt-1 p-2 w-[25vw] ml-2 border rounded-md"
+            className="mt-1  p-2 w-[25vw] ml-2  border rounded-md"
             required
           />
         </div>
@@ -130,7 +168,7 @@ export const Bookings = () => {
             type="date"
             id="checkout"
             name="checkout"
-            min={today}
+            min={formData.checkin} 
             value={formData.checkout}
             onChange={handleChange}
             className="mt-1 p-2 w-[25vw] ml-2 border rounded-md"
@@ -142,7 +180,7 @@ export const Bookings = () => {
           onClick={() => {
             dispatch({
               type: BOOKING,
-              payload: {  tourname:placestate.currentplace.place, price:placestate.currentplace.price, place: placestate.currentplace.place, photoone: placestate.currentplace.photoone, description:placestate.currentplace.description,checkIn:formData.checkin,checkOut:formData.checkout,email:formData.email,name:formData.name }
+              payload: {  tourname:placestate.currentplace.place, price:placestate.currentplace.price, place: placestate.currentplace.place, photoone: placestate.currentplace.photoone, description:placestate.currentplace.description,checkIn:formData.checkin,checkOut:formData.checkout,email:formData.email,name:formData.name,guests:formData.guests }
             })
           }}
             type="submit"
@@ -152,8 +190,10 @@ export const Bookings = () => {
           </button>
         </div>
         </div>
-      </form>
+      </form>:<Checkout/>}
+     
     </div>
+    </Template>
      </div>
     </div>) 
 }

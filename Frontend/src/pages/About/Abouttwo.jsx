@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Footer from '../../components/Footer';
-
+import { AiTwotoneSafetyCertificate } from "react-icons/ai"
 export default function Abouttwo() {
   useEffect(() => {
     AOS.init({duration: 2000,
@@ -15,24 +15,24 @@ export default function Abouttwo() {
      data-aos-easing="ease-out-cubic"
      data-aos-duration="1800">
       <h1 className='text-[#1c262f] text-6xl ml-[7vw] font-semibold'>Why tour with us</h1>
-    <div className='h-80 flex  flex-wrap    mt-4 ml-[7vw]  w-[60vw]'>
-    <div className='h-1/2 w-1/2  '>
-      <div className=' h-1/3 w-full '></div>
+    <div className='h-80 flex  flex-wrap items-start justify-start mt-4 ml-[7vw]  w-[60vw]'>
+    <div className='h-1/2 w-1/2 flex flex-col  '>
+      <div className=' h-1/3 w-full'><img className='bg-white h-16 w-20' src="./safety.PNG"  /></div>
     <div className=' h-1/3 w-full text-3xl font-bold text-[#415161]'><h1>Safety First</h1></div>
     <div className=' h-1/3 w-full text-[#415161]'><h1>hn bhai khus hai ya mood kaharb  huahuahsd</h1></div>
     </div>
       <div className='h-1/2 w-1/2 '>
-        <div className=' h-1/3 w-full '></div>
+        <div className=' h-1/3 w-full '><img className='bg-white h-16 w-14' src="./person.PNG"  /></div>
       <div className=' h-1/3 w-full text-3xl font-bold text-[#415161]'><h1>Best Guides</h1></div>
       <div className=' h-1/3 w-full text-[#415161]'><h1>hn bhai khus hai ya mood kaharb  huahuahsd</h1></div>
       </div>
       <div className='h-1/2 w-1/2 '>
-        <div className=' h-1/3 w-full '></div>
+        <div className=' h-1/3 w-full '><img className='bg-white h-16 w-20' src="./book.PNG"  /></div>
       <div className=' h-1/3 w-full text-3xl font-bold text-[#415161]'><h1>Experience</h1></div>
       <div className=' h-1/3 w-full text-[#415161]'><h1>hn bhai khus hai ya mood kaharb  huahuahsd</h1></div>
       </div>
       <div className='h-1/2 w-1/2 '>
-        <div className=' h-1/3 w-full '></div>
+        <div className=' h-1/3 w-full '><img className='bg-white h-14 w-20' src="./camera.PNG"  /></div>
       <div className=' h-1/3 w-full text-3xl font-bold text-[#415161]'><h1>Memories</h1></div>
       <div className=' h-1/3 w-full text-[#415161]'><h1>hn bhai khus hai ya mood kaharb  huahuahsd</h1></div>
       </div>

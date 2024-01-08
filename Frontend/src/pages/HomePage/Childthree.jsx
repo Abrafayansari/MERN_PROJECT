@@ -2,7 +2,7 @@ import React from 'react'
 
 const Childthree = () => {
   return (
-    <div className='  h-[100vh] w-[100%]'>
+    <div className='  h-[130vh] w-[100%]'>
       <div><h1 className='text-[48px]  ml-[10vw] font-bold text-[#1c262f]'>Tour highlights</h1>
       <p className='text-[#415161] ml-[10vw] w-[60vw] mt-5 text-[20px]'>Would you like to go on a photo tour? Our guides know exactly what you need! The sceneries we have for you are going to make your vacation unforgettable!</p></div>
       <div className='mt-20 flex ml-[10vw] gap-6 text-center'>

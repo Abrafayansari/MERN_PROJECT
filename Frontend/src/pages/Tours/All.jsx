@@ -41,7 +41,7 @@ export default function All() {
                 })
               }}
               className='h-64 rounded-t-2xl  bg-cover '>
-              <img className='h-64  w-[45vw] content-center' src={item.photo} />
+              <img className='h-64 rounded-lg w-[45vw] content-center' src={item.photo} />
             </Link> : <Link to={"/signup"}
               onClick={() => {
                 Swal.fire({

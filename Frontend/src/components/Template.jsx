@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 const Template = (props) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex w-full flex-col">
       <Navbar />
       <div>
        

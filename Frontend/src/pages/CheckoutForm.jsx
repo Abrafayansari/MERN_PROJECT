@@ -7,6 +7,7 @@ import Footer from '../components/Footer';
 import { useSelector } from 'react-redux';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Template from '../components/Template';
 const CheckoutForm = () => {
   useEffect(() => {
     AOS.init({duration: 2000,
@@ -51,9 +52,9 @@ const CheckoutForm = () => {
     }
   };
 
-  return (<div style={{backgroundImage:`url(${bookingstate.currentbooking.photoone})`}} className='bg-cover  flex justify-center items-center text-center w-screen h-screen'>
-    <Navbar/>
-    <div data-aos="zoom-out" className='w-[30vw]  h-[75vh] flex justify-center items-center text-center rounded-lg bg-white'>    <form className='w-[25vw]  ' onSubmit={handleSubmit}>
+  return (     <div className='bg-cover  flex justify-center items-center text-center w-screen h-[36%]'>
+    
+    <div data-aos="zoom-out" className='w-[30vw]  h-[75vh] flex justify-center items-center text-center border-2 mb-5 rounded-lg bg-white'>    <form className='w-[25vw]  ' onSubmit={handleSubmit}>
       <h1 className='text-3xl font-bold mb-16 text-[#415161]  '>CheckOut</h1>
       
       <PaymentElement />
@@ -65,8 +66,8 @@ const CheckoutForm = () => {
     </form>
     </div>
 
-    <div className='fixed bottom-0 left-0 '>
-    <Footer/></div>
+    {/* <div className=' fixed bottom-0 left-0 '>
+    <Footer/></div> */}
 
     </div> );
 };
