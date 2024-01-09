@@ -31,7 +31,7 @@ const CheckoutForm = () => {
       elements,
 
       confirmParams:{
-        return_url: 'http://localhost:5173/',
+        return_url: 'http://localhost:5173/success',
       }
       //  Swal.fire({
       //     title: 'Payment Successful!',
@@ -47,27 +47,26 @@ const CheckoutForm = () => {
     if (error) {
       setErrorMessage(error.message);
     } else {
-      // Display SweetAlert2 on success
+    
 
     }
   };
 
-  return (     <div className='bg-cover  flex justify-center items-center text-center w-screen h-[36%]'>
+  return (     <div className='bg-cover flex justify-center items-center text-center  h-[36%]'>
     
-    <div data-aos="zoom-out" className='w-[30vw]  h-[75vh] flex justify-center items-center text-center border-2 mb-5 rounded-lg bg-white'>    <form className='w-[25vw]  ' onSubmit={handleSubmit}>
+    <div  className='w-[30vw]  h-[75vh] flex justify-center items-center text-center border-2 mb-5 rounded-lg bg-white'>    <form className='w-[25vw]  ' onSubmit={handleSubmit}>
       <h1 className='text-3xl font-bold mb-16 text-[#415161]  '>CheckOut</h1>
       
       <PaymentElement />
       <button disabled={!stripe} className='bg-[#ED1C24] flex gap-5 px-4 p-2 rounded-md text-white mt-4 text-lg'>
-        Pay{"                                   "}${bookingstate.currentbooking.price}
+        Pay{"                                   "}${bookingstate.currentbooking.guests*bookingstate.currentbooking.price}
       </button>
 
       {errorMessage && <div>{errorMessage}</div>}
     </form>
     </div>
 
-    {/* <div className=' fixed bottom-0 left-0 '>
-    <Footer/></div> */}
+    
 
     </div> );
 };

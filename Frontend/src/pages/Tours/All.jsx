@@ -58,7 +58,7 @@ export default function All() {
               <div className='flex text-[21.6px] font-bold mt-11 text-[#415161]'><h1>{item.name} in {"    "}{item.place}</h1></div>
               <div className='flex items-center  text-[#ED1C24] mt-5'> <span className='text-lg'>{item.price}$</span> <h1 className='text-xs mt-2' >/Person</h1> <h1 className='ml-[8vw] '>
                 
-                {userstate.loginuser?.Username ?<button onClick={()=>navigate("/tour/all")} className='flex justify-center items-center bg-[#ED1C24] text-white rounded-sm  p-2'>Book now<FaLongArrowAltRight className='ml-3' /> </button>:<button onClick={()=>{Swal.fire({
+                {userstate.loginuser?.Username ?<button onClick={()=>navigate("/bookings")} className='flex justify-center items-center bg-[#ED1C24] text-white rounded-sm  p-2'>Book now<FaLongArrowAltRight className='ml-3' /> </button>:<button onClick={()=>{Swal.fire({
                   title: 'please Register first ',
                   text: 'Unauthorized access you are not Registered',
                   icon: 'error',

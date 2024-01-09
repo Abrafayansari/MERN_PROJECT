@@ -20,19 +20,25 @@ router.get("/findupload",finduploads)
 router.post("/bookplace",bookplace)
 router.get("/findbookedplace",findbookedplace)
 router.post("/finduserplace",findbookplaceofuser)
+
+
+
+
 //=====================Stripe=====================//
+
+
 router.get("/publishable-key", (req,res) => {
     res.json({ publishable_key: "pk_test_51OKLBeSIsiY4AVCk6uYykDnlwr2Bj0YCdLZGztqmOSswcrMk9yWybT0naM4gJNhllbHmPD3ZvQF960eM9LXqZTLI00EW8rLwTi" }) ;
   });
 
 router.post("/create-payment-intent", async (req, res) => {
   try {
-    // Check if the customer 'Amir' exists or create 
+    
     const {price,email,name}=req.body
     let customer = await stripe.customers.list({ email:email, limit: 1 });
 
     if (customer.data.length === 0) {
-      // Customer does not exist, create a new customer
+      
       customer = await stripe.customers.create({
         name: name,
         email:email,
@@ -46,17 +52,17 @@ router.post("/create-payment-intent", async (req, res) => {
         },
       });
     } else {
-      // Customer already exists, use the existing customer
+      
       customer = customer.data[0];
     }
 
-    // Now create the PaymentIntent
+  
     const paymentIntent = await stripe.paymentIntents.create({
       amount:price*100 ,
       currency: 'usd',
       payment_method_types: ['card'],
       description: 'Tour Booking - City Explorer Package',
-      customer: customer.id, // Use the customer ID, not the name
+      customer: customer.id, 
       shipping: {
         name: name,
         address: {
@@ -69,7 +75,7 @@ router.post("/create-payment-intent", async (req, res) => {
       },
     });
 
-    // Respond with the client secret
+   
     res.json({ client_secret: paymentIntent.client_secret });
 
   } catch (error) {

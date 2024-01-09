@@ -8,17 +8,20 @@ import { BOOKING } from '../../redux/actions'
 import Template from "../components/Template"
 import Checkout from './Checkout'
 export const Bookings = () => {
-  const booking=()=>{
-    return <div>
-<div>
-<h1>Name</h1>
-<h1></h1>
-<h1></h1>
-</div> <div>
+  const Booking=()=>{
+    return <div className='flex  justify-between'>
+ <ul className='mt-8'>
+        <li className='text-2xl text-[#364452] font-bold'>Payment Details</li>
+        <li className='mb-1 mt-12'>Guests:<span className='text-[#ED1C24] ml-3 '>{bookingstate.currentbooking.guests}</span></li>
+        <li className='mb-1'>CheckIn:<span className='text-[#ED1C24] ml-3 '>{bookingstate.currentbooking.checkIn}</span></li>
+        <li className='mb-1'>CheckOut:<span className='text-[#ED1C24] ml-3 '>{bookingstate.currentbooking.checkOut}</span></li>
+        <li className='mb-1'>To Pay:<span className='text-[#ED1C24] ml-3 '>${bookingstate.currentbooking.guests * bookingstate.currentbooking.price}</span></li>
+      </ul>
+ <div className='ml-[20vw]'>
   <Checkout/>
 </div>
 
-    </div>
+    </div>  
   }
   const dispatch=useDispatch()
   const bookingstate=useSelector(state=>state.Booking) 
@@ -75,7 +78,7 @@ export const Bookings = () => {
       <h1 className='text-4xl ml-[30vw] font-bold text-[#364452] underline'>Booking details </h1>
       
       <div className='text-2xl mt-20 text-[#364452]'><h1>{placestate.currentplace.place}</h1><h1 className='text-[#ED1C24] mt-2 mb-2'>
-        {placestate.currentplace.price}$ <span className='text-sm'>/person</span> </h1></div>
+      ${placestate.currentplace.price} <span className='text-sm'>/person</span> </h1></div>
       <div className='flex  gap-4 text-[#40505f] w-[50vw]'><h1>{placestate.currentplace.description}</h1></div>
      </div>
      <div className="ml-[7vw] w-fit mt-28 ">
@@ -190,7 +193,7 @@ export const Bookings = () => {
           </button>
         </div>
         </div>
-      </form>:<Checkout/>}
+      </form>:<Booking/>}
      
     </div>
     </Template>

@@ -19,22 +19,24 @@ export default function Abouttwo() {
     <div className='h-1/2 w-1/2 flex flex-col  '>
       <div className=' h-1/3 w-full'><img className='bg-white h-16 w-20' src="./safety.PNG"  /></div>
     <div className=' h-1/3 w-full text-3xl font-bold text-[#415161]'><h1>Safety First</h1></div>
-    <div className=' h-1/3 w-full text-[#415161]'><h1>hn bhai khus hai ya mood kaharb  huahuahsd</h1></div>
+    <div className=' h-1/3 w-full text-[#415161]'><h1>Committed to your safety in and around the city.</h1></div>
     </div>
       <div className='h-1/2 w-1/2 '>
         <div className=' h-1/3 w-full '><img className='bg-white h-16 w-14' src="./person.PNG"  /></div>
       <div className=' h-1/3 w-full text-3xl font-bold text-[#415161]'><h1>Best Guides</h1></div>
-      <div className=' h-1/3 w-full text-[#415161]'><h1>hn bhai khus hai ya mood kaharb  huahuahsd</h1></div>
+      <div className=' h-1/3 w-full text-[#415161]'><h1>Our guides know how to make your tour special.
+</h1></div>
       </div>
       <div className='h-1/2 w-1/2 '>
         <div className=' h-1/3 w-full '><img className='bg-white h-16 w-20' src="./book.PNG"  /></div>
       <div className=' h-1/3 w-full text-3xl font-bold text-[#415161]'><h1>Experience</h1></div>
-      <div className=' h-1/3 w-full text-[#415161]'><h1>hn bhai khus hai ya mood kaharb  huahuahsd</h1></div>
+      <div className=' h-1/3 w-full text-[#415161]'><h1>Some destinations require expert guidance. </h1></div>
       </div>
       <div className='h-1/2 w-1/2 '>
         <div className=' h-1/3 w-full '><img className='bg-white h-14 w-20' src="./camera.PNG"  /></div>
       <div className=' h-1/3 w-full text-3xl font-bold text-[#415161]'><h1>Memories</h1></div>
-      <div className=' h-1/3 w-full text-[#415161]'><h1>hn bhai khus hai ya mood kaharb  huahuahsd</h1></div>
+      <div className=' h-1/3 w-full text-[#415161]'><h1>We help you experience the best emotions ever!
+</h1></div>
       </div>
     </div></div>
         <h1 className='text-[#1c262f] ml-[8vw] mt-20 text-5xl font-bold'>
@@ -53,7 +55,7 @@ export default function Abouttwo() {
       
      </div>
         </div>
-        <div className='mt-5'><Footer/></div>
+        
       </div>
   )
 }
